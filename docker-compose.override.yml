@@ -11,6 +11,13 @@
 
 # EXAMPLE: if you want to use the config file and the latest numbered release docker image the result will be:
 
+services:
+  api:
+    volumes:
+      - "${PWD}/client"  # Path to local frontend folder
+      - ./images:/app/client/public/images
+      - ./logs:/app/api/logs
+      
 # services:
 #   api:
 #     volumes:
