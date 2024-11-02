@@ -10,6 +10,7 @@ import { useLocalize, useNewConvo } from '~/hooks';
 import { NewChatIcon } from '~/components/svg';
 import { cn } from '~/utils';
 import store from '~/store';
+import StellisLogo from '../svg/StellisLogo';
 
 const NewChatButtonIcon = ({ conversation }: { conversation: TConversation | null }) => {
   const searchQuery = useRecoilValue(store.searchQuery);
@@ -39,14 +40,15 @@ const NewChatButtonIcon = ({ conversation }: { conversation: TConversation | nul
       ) : (
         <div className="shadow-stroke relative flex h-full items-center justify-center rounded-full bg-white text-black">
           {endpoint && Icon != null && (
-            <Icon
-              size={41}
-              context="nav"
-              className="h-2/3 w-2/3"
-              endpoint={endpoint}
-              endpointType={endpointType}
-              iconURL={endpointIconURL}
-            />
+            // <Icon
+            //   size={41}
+            //   context="nav"
+            //   className="h-2/3 w-2/3"
+            //   endpoint={endpoint}
+            //   endpointType={endpointType}
+            //   iconURL={endpointIconURL}
+              // />
+                <StellisLogo size={18} color="#0062ff"/>
           )}
         </div>
       )}
@@ -81,6 +83,7 @@ export default function NewChat({
     }
   };
 
+
   return (
     <div className="sticky left-0 right-0 top-0 z-50 bg-surface-primary-alt pt-3.5">
       <div className="pb-0.5 last:pb-0" style={{ transform: 'none' }}>
@@ -96,9 +99,11 @@ export default function NewChat({
           aria-label={localize('com_ui_new_chat')}
         >
           <NewChatButtonIcon conversation={conversation} />
+
           <div className="grow overflow-hidden text-ellipsis whitespace-nowrap text-sm text-text-primary">
             {localize('com_ui_new_chat')}
           </div>
+          
           <div className="flex gap-3">
             <span className="flex items-center" data-state="closed">
               <NewChatIcon className="size-5" />

@@ -9,7 +9,7 @@ export default function useLocalize() {
   const memoizedLocalize = useCallback(
     (phraseKey: string, ...values: string[]) => localize(lang, phraseKey, ...(values ?? [])),
     [lang], // Only recreate the function when `lang` changes
-  );
+);
 
   return memoizedLocalize;
 }
