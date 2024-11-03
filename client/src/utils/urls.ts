@@ -1,0 +1,1 @@
+export const STELLIS_SUPPORT_PAGE_URL = "https://www.stellislabs.com/support"
