@@ -60,7 +60,7 @@ const SidePanel = ({
   const [minSize, setMinSize] = useState(defaultMinSize);
   const [newUser, setNewUser] = useLocalStorage('newUser', true);
   const [isCollapsed, setIsCollapsed] = useState(defaultCollapsed);
-  const [fullCollapse, setFullCollapse] = useState(fullPanelCollapse);
+  const [fullCollapse, setFullCollapse] = useState(true);
   const [collapsedSize, setCollapsedSize] = useState(navCollapsedSize);
   const { data: endpointsConfig = {} as TEndpointsConfig } = useGetEndpointsQuery();
   const { data: startupConfig } = useGetStartupConfig();
@@ -206,7 +206,7 @@ const SidePanel = ({
             </ResizablePanel>
           </>
         )}
-        <div
+        {/* <div
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
           className="relative flex w-px items-center justify-center"
@@ -225,10 +225,12 @@ const SidePanel = ({
             translateX={false}
             side="right"
           />
-        </div>
+        </div> */}
+
         {(!isCollapsed || minSize > 0) && !isSmallScreen && !fullCollapse && (
           <ResizableHandleAlt withHandle className="bg-transparent dark:text-white" />
         )}
+
         <ResizablePanel
           tagName="nav"
           id="controls-nav"
@@ -283,6 +285,7 @@ const SidePanel = ({
           />
         </ResizablePanel>
       </ResizablePanelGroup>
+
       <button
         aria-label="Close right side panel"
         className={`nav-mask ${!isCollapsed ? 'active' : ''}`}
