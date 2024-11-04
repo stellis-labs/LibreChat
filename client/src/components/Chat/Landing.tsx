@@ -103,7 +103,7 @@ export default function Landing({ Header }: { Header?: ReactNode }) {
             className="h-2/3 w-2/3"
             size={41}
           /> */}
-          <StellisLogo className={containerClassName} size={30} color="#18181b" />
+          <StellisLogo className={containerClassName} size={30} color="#3b82f6" />
           {startupConfig?.showBirthdayIcon === true ? (
             <TooltipAnchor
               className="absolute bottom-8 right-2.5"

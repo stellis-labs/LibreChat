@@ -48,7 +48,7 @@ const NewChatButtonIcon = ({ conversation }: { conversation: TConversation | nul
             //   endpointType={endpointType}
             //   iconURL={endpointIconURL}
               // />
-                <StellisLogo size={18} color="#18181b"/>
+                <StellisLogo size={18} color="#3b82f6"/>
           )}
         </div>
       )}

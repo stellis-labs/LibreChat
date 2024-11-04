@@ -45,7 +45,7 @@ function AuthLayout({
       return (
         <ErrorRender>
           {localize('com_auth_error_invalid_reset_token')}{' '}
-          <a className="font-semibold text-green-600 hover:underline" href="/forgot-password">
+          <a className="font-semibold text-blue-600 hover:underline" href="/forgot-password">
             {localize('com_auth_click_here')}
           </a>{' '}
           {localize('com_auth_to_try_again')}
@@ -72,7 +72,7 @@ function AuthLayout({
           <StellisFullLogo className='w-full' isDark={isDark}/>
         </div>
       </BlinkAnimation>
-      
+
       <DisplayError />
       <div className="absolute bottom-0 left-0 md:m-4">
         <ThemeSelector />
