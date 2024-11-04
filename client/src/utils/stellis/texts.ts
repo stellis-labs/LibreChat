@@ -1,1 +1,1 @@
-export const MAIN_DESCRIPTION = "Designed and engineered at Stellis Labs."
+export const MAIN_DESCRIPTION = "Designed and engineered at "

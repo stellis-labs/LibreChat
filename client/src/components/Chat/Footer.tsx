@@ -37,8 +37,8 @@ export default function Footer({ className }: { className?: string }) {
   const mainContentParts = (
     typeof config?.customFooter === 'string'
       ? config.customFooter
-      : 
-        `[${MAIN_DESCRIPTION}](https://www.stellislabs.com/)`
+      : MAIN_DESCRIPTION + 
+        `[Stellis Labs](https://www.stellislabs.com/)`
   ).split('|');
 
   useEffect(() => {
