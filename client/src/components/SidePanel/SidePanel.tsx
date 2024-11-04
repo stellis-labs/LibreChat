@@ -206,7 +206,7 @@ const SidePanel = ({
             </ResizablePanel>
           </>
         )}
-        {/* <div
+        <div
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
           className="relative flex w-px items-center justify-center"
@@ -225,7 +225,7 @@ const SidePanel = ({
             translateX={false}
             side="right"
           />
-        </div> */}
+        </div>
 
         {(!isCollapsed || minSize > 0) && !isSmallScreen && !fullCollapse && (
           <ResizableHandleAlt withHandle className="bg-transparent dark:text-white" />
@@ -277,6 +277,7 @@ const SidePanel = ({
               />
             </div>
           )}
+
           <Nav
             resize={panelRef.current?.resize}
             isCollapsed={isCollapsed}

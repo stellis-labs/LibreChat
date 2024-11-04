@@ -1,10 +1,12 @@
-import { useLocalize } from '~/hooks';
+import { ThemeContext, useLocalize } from '~/hooks';
 import { BlinkAnimation } from './BlinkAnimation';
 import { TStartupConfig } from 'librechat-data-provider';
 import SocialLoginRender from './SocialLoginRender';
 import { ThemeSelector } from '~/components/ui';
 import { Banner } from '../Banners';
 import Footer from './Footer';
+import StellisFullLogo from '../svg/StellisFullLogo';
+import { useContext } from 'react';
 
 const ErrorRender = ({ children }: { children: React.ReactNode }) => (
   <div className="mt-16 flex justify-center">
@@ -55,14 +57,22 @@ function AuthLayout({
     return null;
   };
 
+  const { theme } = useContext(ThemeContext);
+
+  let isDark = theme === 'dark';
+  if (theme === 'system') {
+    isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
   return (
     <div className="relative flex min-h-screen flex-col bg-white dark:bg-gray-900">
       <Banner />
       <BlinkAnimation active={isFetching}>
         <div className="mt-6 h-10 w-full bg-cover">
-          <img src="/assets/logo.svg" className="h-full w-full object-contain" alt="Logo" />
+          <StellisFullLogo className='w-full' isDark={isDark}/>
         </div>
       </BlinkAnimation>
+      
       <DisplayError />
       <div className="absolute bottom-0 left-0 md:m-4">
         <ThemeSelector />

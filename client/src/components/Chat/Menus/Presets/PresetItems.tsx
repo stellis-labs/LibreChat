@@ -34,6 +34,8 @@ const PresetItems: FC<{
 }) => {
   const { data: endpointsConfig } = useGetEndpointsQuery();
   const defaultPreset = useRecoilValue(store.defaultPreset);
+  console.log({ defaultPreset })
+  console.log({presets})
   const localize = useLocalize();
   return (
     <>
@@ -153,6 +155,7 @@ const PresetItems: FC<{
                           onClick={(e) => {
                             e.preventDefault();
                             e.stopPropagation();
+                            console.log({preset})
                             onSetDefaultPreset(preset, defaultPreset?.presetId === preset.presetId);
                           }}
                         >

@@ -101,7 +101,7 @@ const ChatForm = ({ index = 0 }) => {
   const { data: fileConfig = defaultFileConfig } = useGetFileConfig({
     select: (data) => mergeFileConfig(data),
   });
-
+  
   const endpointFileConfig = fileConfig.endpoints[endpoint ?? ''];
   const invalidAssistant = useMemo(
     () =>

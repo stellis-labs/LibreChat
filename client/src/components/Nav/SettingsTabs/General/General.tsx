@@ -128,9 +128,9 @@ function General() {
       <div className="pb-3">
         <AutoScrollSwitch />
       </div>
-      <div className="pb-3">
+      {/* <div className="pb-3">
         <HideSidePanelSwitch />
-      </div>
+      </div> */}
       <div className="pb-3">
         <ArchivedChats />
       </div>

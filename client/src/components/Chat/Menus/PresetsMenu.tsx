@@ -22,6 +22,8 @@ const PresetsMenu: FC = () => {
   const { preset } = useChatContext();
 
   const presets = presetsQuery.data || [];
+
+  console.log({presets})
   return (
     <Root>
       <Trigger asChild>

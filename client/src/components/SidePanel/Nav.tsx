@@ -16,6 +16,8 @@ export default function Nav({ links, isCollapsed, resize, defaultActive }: NavPr
     _setActive(id);
   };
 
+  console.log({links})
+
   return (
     <div
       data-collapsed={isCollapsed}

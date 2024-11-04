@@ -170,12 +170,12 @@ export default function Conversation({
           )}
           title={title ?? ''}
         >
-          <EndpointIcon
+          {/* <EndpointIcon
             conversation={conversation}
             endpointsConfig={endpointsConfig}
             size={20}
             context="menu-item"
-          />
+          /> */}
           <div className="relative line-clamp-1 flex-1 grow overflow-hidden">{title}</div>
           {isActiveConvo ? (
             <div className="absolute bottom-0 right-0 top-0 w-20 rounded-r-lg bg-gradient-to-l" />
