@@ -1,6 +1,6 @@
 export const LANDING_PAGE_BOT_NAME = "Max"
 
-export const LANDING_PAGE_BOT_TAG_LINE = "The master of Resumes"
+export const LANDING_PAGE_BOT_TAG_LINE = "The Master of Resumes"
 
 export const LANDING_PAGE_BOT_DESCRIPTION =
   "Max at your service! Together, we’ll build a resume that’s sharp, professional, and speaks the language of opportunity."

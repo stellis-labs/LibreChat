@@ -1,42 +1,56 @@
-import { Search } from 'lucide-react';
-import { useRecoilValue } from 'recoil';
-import { useNavigate } from 'react-router-dom';
-import { useGetEndpointsQuery } from 'librechat-data-provider/react-query';
-import type { TConversation } from 'librechat-data-provider';
-import { getEndpointField, getIconEndpoint, getIconKey } from '~/utils';
-import { icons } from '~/components/Chat/Menus/Endpoints/Icons';
-import ConvoIconURL from '~/components/Endpoints/ConvoIconURL';
-import { useLocalize, useNewConvo } from '~/hooks';
-import { NewChatIcon } from '~/components/svg';
-import { cn } from '~/utils';
-import store from '~/store';
-import StellisLogo from '../svg/StellisLogo';
+import { Search } from "lucide-react"
+import { useRecoilValue } from "recoil"
+import { useNavigate } from "react-router-dom"
+import { useGetEndpointsQuery } from "librechat-data-provider/react-query"
+import type { TConversation } from "librechat-data-provider"
+import { getEndpointField, getIconEndpoint, getIconKey } from "~/utils"
+import { icons } from "~/components/Chat/Menus/Endpoints/Icons"
+import ConvoIconURL from "~/components/Endpoints/ConvoIconURL"
+import { useLocalize, useNewConvo } from "~/hooks"
+import { NewChatIcon } from "~/components/svg"
+import { cn } from "~/utils"
+import store from "~/store"
+import { RESUME_BOT_IMAGE_URL } from "~/utils/urls"
+import ProfileImg from "../ui/ProfileImg"
 
-const NewChatButtonIcon = ({ conversation }: { conversation: TConversation | null }) => {
-  const searchQuery = useRecoilValue(store.searchQuery);
-  const { data: endpointsConfig } = useGetEndpointsQuery();
+const NewChatButtonIcon = ({
+  conversation,
+}: {
+  conversation: TConversation | null
+}) => {
+  const searchQuery = useRecoilValue(store.searchQuery)
+  const { data: endpointsConfig } = useGetEndpointsQuery()
 
   if (searchQuery) {
     return (
       <div className="shadow-stroke relative flex h-7 w-7 items-center justify-center rounded-full bg-white text-black dark:bg-white">
         <Search className="h-5 w-5" />
       </div>
-    );
+    )
   }
 
-  let { endpoint = '' } = conversation ?? {};
-  const iconURL = conversation?.iconURL ?? '';
-  endpoint = getIconEndpoint({ endpointsConfig, iconURL, endpoint });
+  let { endpoint = "" } = conversation ?? {}
+  const iconURL = conversation?.iconURL ?? ""
+  endpoint = getIconEndpoint({ endpointsConfig, iconURL, endpoint })
 
-  const endpointType = getEndpointField(endpointsConfig, endpoint, 'type');
-  const endpointIconURL = getEndpointField(endpointsConfig, endpoint, 'iconURL');
-  const iconKey = getIconKey({ endpoint, endpointsConfig, endpointType, endpointIconURL });
-  const Icon = icons[iconKey];
+  const endpointType = getEndpointField(endpointsConfig, endpoint, "type")
+  const endpointIconURL = getEndpointField(endpointsConfig, endpoint, "iconURL")
+  const iconKey = getIconKey({
+    endpoint,
+    endpointsConfig,
+    endpointType,
+    endpointIconURL,
+  })
+  const Icon = icons[iconKey]
 
   return (
     <div className="h-7 w-7 flex-shrink-0">
-      {iconURL && iconURL.includes('http') ? (
-        <ConvoIconURL preset={conversation} endpointIconURL={iconURL} context="nav" />
+      {iconURL && iconURL.includes("http") ? (
+        <ConvoIconURL
+          preset={conversation}
+          endpointIconURL={iconURL}
+          context="nav"
+        />
       ) : (
         <div className="shadow-stroke relative flex h-full items-center justify-center rounded-full bg-white text-black">
           {endpoint && Icon != null && (
@@ -47,14 +61,14 @@ const NewChatButtonIcon = ({ conversation }: { conversation: TConversation | nul
             //   endpoint={endpoint}
             //   endpointType={endpointType}
             //   iconURL={endpointIconURL}
-              // />
-                <StellisLogo size={18} color="#3b82f6"/>
+            // />
+            <ProfileImg src={RESUME_BOT_IMAGE_URL} alt="max_img" size={50} />
           )}
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
 export default function NewChat({
   index = 0,
@@ -62,48 +76,47 @@ export default function NewChat({
   subHeaders,
   isSmallScreen,
 }: {
-  index?: number;
-  toggleNav: () => void;
-  subHeaders?: React.ReactNode;
-  isSmallScreen: boolean;
+  index?: number
+  toggleNav: () => void
+  subHeaders?: React.ReactNode
+  isSmallScreen: boolean
 }) {
   /** Note: this component needs an explicit index passed if using more than one */
-  const { newConversation: newConvo } = useNewConvo(index);
-  const navigate = useNavigate();
-  const localize = useLocalize();
+  const { newConversation: newConvo } = useNewConvo(index)
+  const navigate = useNavigate()
+  const localize = useLocalize()
 
-  const { conversation } = store.useCreateConversationAtom(index);
+  const { conversation } = store.useCreateConversationAtom(index)
 
   const clickHandler = (event: React.MouseEvent<HTMLAnchorElement>) => {
     if (event.button === 0 && !(event.ctrlKey || event.metaKey)) {
-      event.preventDefault();
-      newConvo();
-      navigate('/c/new');
-      toggleNav();
+      event.preventDefault()
+      newConvo()
+      navigate("/c/new")
+      toggleNav()
     }
-  };
-
+  }
 
   return (
     <div className="sticky left-0 right-0 top-0 z-50 bg-surface-primary-alt pt-3.5">
-      <div className="pb-0.5 last:pb-0" style={{ transform: 'none' }}>
+      <div className="pb-0.5 last:pb-0" style={{ transform: "none" }}>
         <a
           href="/"
           tabIndex={0}
           data-testid="nav-new-chat"
           onClick={clickHandler}
           className={cn(
-            'group flex h-10 items-center gap-2 rounded-lg px-2 font-medium transition-colors duration-200 hover:bg-surface-hover',
-            isSmallScreen ? 'h-14' : '',
+            "group flex h-10 items-center gap-2 rounded-lg px-2 font-medium transition-colors duration-200 hover:bg-surface-hover",
+            isSmallScreen ? "h-14" : "",
           )}
-          aria-label={localize('com_ui_new_chat')}
+          aria-label={localize("com_ui_new_chat")}
         >
           <NewChatButtonIcon conversation={conversation} />
 
           <div className="grow overflow-hidden text-ellipsis whitespace-nowrap text-sm text-text-primary">
-            {localize('com_ui_new_chat')}
+            {localize("com_ui_new_chat")}
           </div>
-          
+
           <div className="flex gap-3">
             <span className="flex items-center" data-state="closed">
               <NewChatIcon className="size-5" />
@@ -113,5 +126,5 @@ export default function NewChat({
       </div>
       {subHeaders != null ? subHeaders : null}
     </div>
-  );
+  )
 }
