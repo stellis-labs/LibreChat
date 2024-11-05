@@ -12,6 +12,7 @@ import { TooltipAnchor } from '~/components/ui';
 import { BirthdayIcon } from '~/components/svg';
 import ConvoStarter from './ConvoStarter';
 import StellisLogo from '../svg/StellisLogo';
+import ChatPrompt from './Messages/ChatPrompt';
 
 export default function Landing({ Header }: { Header?: ReactNode }) {
   const { conversation } = useChatContext();
@@ -104,6 +105,7 @@ export default function Landing({ Header }: { Header?: ReactNode }) {
             size={41}
           /> */}
           <StellisLogo className={containerClassName} size={30} color="#3b82f6" />
+
           {startupConfig?.showBirthdayIcon === true ? (
             <TooltipAnchor
               className="absolute bottom-8 right-2.5"
@@ -124,8 +126,16 @@ export default function Landing({ Header }: { Header?: ReactNode }) {
           </div> */}
           </div>
         ) : (
-          <h2 className="mb-5 max-w-[75vh] px-12 text-center text-lg font-medium dark:text-white md:px-0 md:text-2xl">
-              {getWelcomeMessage()}
+          <h2 className="mb-5 max-w-[85vh] px-12 text-center text-lg font-medium dark:text-white md:px-0 md:text-2xl flex flex-col gap-2">
+              <div className=''>Gandalf | Your Personal Resume Wizard</div>
+              <div className='md:text-base text-gray-400 font-light w-[80%] mx-auto'>Analyze and improve resumes with detailed feedback on structure, methodology and personality</div>
+
+              <div className='flex flex-wrap gap-4 w-full mx-auto mt-8'>
+                <ChatPrompt prompt="Check formatting(flow & Clarity) akjbskjbaksbc" />
+                <ChatPrompt prompt="Check formatting(flow & Clarity)2"  />
+                <ChatPrompt prompt="Check formatting(flow & Clarity)3"  />
+                <ChatPrompt prompt="Check formatting(flow & Clarity)4"  />
+              </div>
           </h2>
         )}
         <div className="mt-8 flex flex-wrap justify-center gap-3 px-4">

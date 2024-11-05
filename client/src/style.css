@@ -1292,6 +1292,13 @@ button {
   width: 0.5rem;
 }
 
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* Change the number to limit lines */
+  overflow: hidden;
+}
+
 ::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 9999px;
