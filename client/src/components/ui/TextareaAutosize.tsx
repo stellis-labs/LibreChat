@@ -9,6 +9,7 @@ export const TextareaAutosize = forwardRef<HTMLTextAreaElement, TextareaAutosize
     const [, setIsRerendered] = useState(false);
     const chatDirection = useRecoilValue(store.chatDirection).toLowerCase();
     useLayoutEffect(() => setIsRerendered(true), []);
+ 
     return <ReactTextareaAutosize dir={chatDirection} {...props} ref={ref} />;
   },
 );

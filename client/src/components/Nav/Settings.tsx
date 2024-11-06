@@ -132,31 +132,31 @@ export default function Settings({ open, onOpenChange }: TDialogProps) {
                         icon: <GearIcon />,
                         label: 'com_nav_setting_general',
                       },
-                      {
-                        value: SettingsTabValues.CHAT,
-                        icon: <MessageSquare className="icon-sm" />,
-                        label: 'com_nav_setting_chat',
-                      },
-                      {
-                        value: SettingsTabValues.BETA,
-                        icon: <ExperimentIcon />,
-                        label: 'com_nav_setting_beta',
-                      },
-                      {
-                        value: SettingsTabValues.COMMANDS,
-                        icon: <Command className="icon-sm" />,
-                        label: 'com_nav_commands',
-                      },
-                      {
-                        value: SettingsTabValues.SPEECH,
-                        icon: <SpeechIcon className="icon-sm" />,
-                        label: 'com_nav_setting_speech',
-                      },
-                      {
-                        value: SettingsTabValues.DATA,
-                        icon: <DataIcon />,
-                        label: 'com_nav_setting_data',
-                      },
+                      // {
+                      //   value: SettingsTabValues.CHAT,
+                      //   icon: <MessageSquare className="icon-sm" />,
+                      //   label: 'com_nav_setting_chat',
+                      // },
+                      // {
+                      //   value: SettingsTabValues.BETA,
+                      //   icon: <ExperimentIcon />,
+                      //   label: 'com_nav_setting_beta',
+                      // },
+                      // {
+                      //   value: SettingsTabValues.COMMANDS,
+                      //   icon: <Command className="icon-sm" />,
+                      //   label: 'com_nav_commands',
+                      // },
+                      // {
+                      //   value: SettingsTabValues.SPEECH,
+                      //   icon: <SpeechIcon className="icon-sm" />,
+                      //   label: 'com_nav_setting_speech',
+                      // },
+                      // {
+                      //   value: SettingsTabValues.DATA,
+                      //   icon: <DataIcon />,
+                      //   label: 'com_nav_setting_data',
+                      // },
                       {
                         value: SettingsTabValues.ACCOUNT,
                         icon: <UserIcon />,

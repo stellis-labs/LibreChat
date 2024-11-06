@@ -3,9 +3,10 @@ import { useOutletContext } from 'react-router-dom';
 // import { getConfigDefaults, PermissionTypes, Permissions } from 'librechat-data-provider';
 import { useGetStartupConfig } from 'librechat-data-provider/react-query';
 import type { ContextType } from '~/common';
-import {  HeaderNewChat } from './Menus';
+// import {  EndpointsMenu, HeaderNewChat, ModelSpecsMenu, PresetsMenu } from './Menus';
 import ExportAndShareMenu from './ExportAndShareMenu';
-import { useMediaQuery } from '~/hooks';
+import {  useMediaQuery } from '~/hooks';
+import { HeaderNewChat } from './Menus';
 // import HeaderOptions from './Input/HeaderOptions';
 // import BookmarkMenu from './Menus/BookmarkMenu';
 // import AddMultiConvo from './AddMultiConvo';
@@ -38,12 +39,12 @@ export default function Header() {
       <div className="hide-scrollbar flex w-full items-center justify-between gap-2 overflow-x-auto">
         <div className="flex items-center gap-2">
           {!navVisible && <HeaderNewChat />}
-          {/* {interfaceConfig.endpointsMenu === true && <EndpointsMenu />} */}
-          {/* {modelSpecs.length > 0 && <ModelSpecsMenu modelSpecs={modelSpecs} />} */}
-          {/* {<HeaderOptions interfaceConfig={interfaceConfig} />} */}
-          {/* {interfaceConfig.presets === true && <PresetsMenu />} */}
-          {/* {hasAccessToBookmarks === true && <BookmarkMenu />} */}
-          {/* {hasAccessToMultiConvo === true && <AddMultiConvo />} */}
+          {/* {interfaceConfig.endpointsMenu === true && <EndpointsMenu />}
+          {modelSpecs.length > 0 && <ModelSpecsMenu modelSpecs={modelSpecs} />}
+          {<HeaderOptions interfaceConfig={interfaceConfig} />}
+          {interfaceConfig.presets === true && <PresetsMenu />}
+          {hasAccessToBookmarks === true && <BookmarkMenu />}
+          {hasAccessToMultiConvo === true && <AddMultiConvo />} */}
           {isSmallScreen && (
             <ExportAndShareMenu
               isSharedButtonEnabled={startupConfig?.sharedLinksEnabled ?? false}

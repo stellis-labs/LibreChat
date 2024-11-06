@@ -11,6 +11,7 @@ import { UserIcon } from '~/components/svg';
 import { useLocalize } from '~/hooks';
 import Settings from './Settings';
 import store from '~/store';
+import { STELLIS_SUPPORT_PAGE_URL } from '~/utils/urls';
 
 function AccountSettings() {
   const localize = useLocalize();
@@ -96,7 +97,7 @@ function AccountSettings() {
         {startupConfig?.helpAndFaqURL !== '/' && (
           <Select.SelectItem
             value=""
-            onClick={() => window.open(startupConfig?.helpAndFaqURL, '_blank')}
+            onClick={() => window.open(STELLIS_SUPPORT_PAGE_URL, '_blank')}
             className="select-item text-sm"
           >
             <LinkIcon aria-hidden="true" />

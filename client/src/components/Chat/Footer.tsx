@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import TagManager from 'react-gtm-module';
-import { Constants } from 'librechat-data-provider';
 import { useGetStartupConfig } from 'librechat-data-provider/react-query';
 import { useLocalize } from '~/hooks';
+import { MAIN_DESCRIPTION } from '~/utils/stellis/texts';
 
 export default function Footer({ className }: { className?: string }) {
   const { data: config } = useGetStartupConfig();
@@ -37,10 +37,8 @@ export default function Footer({ className }: { className?: string }) {
   const mainContentParts = (
     typeof config?.customFooter === 'string'
       ? config.customFooter
-      : '[LibreChat ' +
-        Constants.VERSION +
-        '](https://librechat.ai) - ' +
-        localize('com_ui_latest_footer')
+      : MAIN_DESCRIPTION + 
+        `[Stellis Labs](https://www.stellislabs.com/).`
   ).split('|');
 
   useEffect(() => {
