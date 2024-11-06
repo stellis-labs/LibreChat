@@ -87,28 +87,28 @@ export default function Landing({ Header }: { Header?: ReactNode }) {
     return entityDocs?.conversation_starters ?? []
   }, [documentsMap, isAgent, entity])
 
-  const containerClassName =
-    "shadow-stroke relative flex h-full items-center justify-center rounded-full bg-white text-black"
+  // const containerClassName =
+  //   "shadow-stroke relative flex h-full items-center justify-center rounded-full bg-white text-black"
 
   const { submitMessage } = useSubmitMessage()
   const sendConversationStarter = (text: string) => submitMessage({ text })
 
-  const getWelcomeMessage = () => {
-    const greeting = conversation?.greeting ?? ""
-    if (greeting) {
-      return greeting
-    }
+  // const getWelcomeMessage = () => {
+  //   const greeting = conversation?.greeting ?? ""
+  //   if (greeting) {
+  //     return greeting
+  //   }
 
-    if (isAssistant) {
-      return localize("com_nav_welcome_assistant")
-    }
+  //   if (isAssistant) {
+  //     return localize("com_nav_welcome_assistant")
+  //   }
 
-    if (isAgent) {
-      return localize("com_nav_welcome_agent")
-    }
+  //   if (isAgent) {
+  //     return localize("com_nav_welcome_agent")
+  //   }
 
-    return localize("com_nav_welcome_message")
-  }
+  //   return localize("com_nav_welcome_message")
+  // }
 
   return (
     <div className="relative h-full">
@@ -155,11 +155,11 @@ export default function Landing({ Header }: { Header?: ReactNode }) {
             <div className="">
               {LANDING_PAGE_BOT_NAME} | {LANDING_PAGE_BOT_TAG_LINE}
             </div>
-            <div className="mx-auto w-[80%] font-light text-gray-400 md:text-base">
+            <div className="mx-auto w-2/3 font-light text-gray-400 md:text-base">
               {LANDING_PAGE_BOT_DESCRIPTION}
             </div>
 
-            <div className="mx-auto mt-8 flex w-full flex-wrap gap-4">
+            <div className="mx-auto mt-8 flex w-fit flex-wrap gap-4">
               <ChatPrompt prompt={LANDING_PAGE_BOT_PROMPT_1} />
               <ChatPrompt prompt={LANDING_PAGE_BOT_PROMPT_2} />
               <ChatPrompt prompt={LANDING_PAGE_BOT_PROMPT_3} />
