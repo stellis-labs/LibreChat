@@ -115,7 +115,7 @@ export default function Landing({ Header }: { Header?: ReactNode }) {
       <div className="absolute left-0 right-0">
         {Header != null ? Header : null}
       </div>
-      <div className="flex h-full flex-col items-center justify-center">
+      <div className="flex h-full flex-col items-center justify-center overflow-y-auto">
         <div className={cn("relative", name && avatar ? "mb-0" : "mb-3")}>
           {/* <ConvoIcon
             agentsMap={agentsMap}
@@ -155,11 +155,11 @@ export default function Landing({ Header }: { Header?: ReactNode }) {
             <div className="">
               {LANDING_PAGE_BOT_NAME} | {LANDING_PAGE_BOT_TAG_LINE}
             </div>
-            <div className="mx-auto w-2/3 font-light text-gray-400 md:text-base">
+            <div className="mx-auto w-full font-light text-gray-400 md:w-2/3 md:text-base">
               {LANDING_PAGE_BOT_DESCRIPTION}
             </div>
 
-            <div className="mx-auto mt-8 flex w-fit flex-wrap gap-4">
+            <div className="mx-auto mt-8 flex w-fit flex-wrap gap-2 md:gap-4">
               <ChatPrompt prompt={LANDING_PAGE_BOT_PROMPT_1} />
               <ChatPrompt prompt={LANDING_PAGE_BOT_PROMPT_2} />
               <ChatPrompt prompt={LANDING_PAGE_BOT_PROMPT_3} />

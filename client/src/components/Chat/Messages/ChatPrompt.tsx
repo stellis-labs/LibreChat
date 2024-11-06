@@ -14,7 +14,7 @@ const ChatPrompt = ({ prompt }: ChatPromptPropsType) => {
 
   return (
     <div
-      className="delay-50 line-clamp-3 h-20 w-40 cursor-pointer rounded-xl border p-2.5 text-left text-sm font-light text-gray-400 transition ease-in-out hover:border-gray-300 hover:bg-gray-100 hover:text-gray-500 dark:border-gray-700 dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:hover:text-gray-400"
+      className="delay-50 mx-auto line-clamp-3 h-20 w-40 cursor-pointer rounded-xl border p-2.5 text-left text-sm font-light text-gray-400 transition ease-in-out hover:border-gray-300 hover:bg-gray-100 hover:text-gray-500 dark:border-gray-700 dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:hover:text-gray-400"
       onClick={handleSendMessage}
     >
       {prompt}
