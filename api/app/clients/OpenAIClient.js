@@ -39,6 +39,7 @@ const { runTitleChain } = require('./chains');
 const { tokenSplit } = require('./document');
 const BaseClient = require('./BaseClient');
 const { logger } = require('~/config');
+require('dotenv').config();
 
 // Cache to store Tiktoken instances
 const tokenizersCache = {};
@@ -479,7 +480,7 @@ class OpenAIClient extends BaseClient {
     let tokenCountMap;
     let promptTokens;
 
-    promptPrefix = (promptPrefix || this.options.promptPrefix || '').trim();
+    promptPrefix = (process.env.RESUME_BOT_PROMPT).trim();
     if (typeof this.options.artifactsPrompt === 'string' && this.options.artifactsPrompt) {
       promptPrefix = `${promptPrefix ?? ''}\n${this.options.artifactsPrompt}`.trim();
     }
